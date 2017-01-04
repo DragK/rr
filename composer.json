@@ -1,5 +1,10 @@
 {
     "require": {
         "monolog/monolog": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "RR\\": "app/"
+        }
     }
 }
