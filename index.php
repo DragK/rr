@@ -1,18 +1,16 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/app/config/config.php';
-
-echo SITE_URL;
+require __DIR__.'/vendor/autoload.php';
+require __DIR__.'/app/config/config.php';
 
 $route = new \RR\Route\Route();
 
 $path = path();
 
-require_once 'app/config/routes.php';
-$a = 'Marcin';
+require_once __DIR__.'/app/config/routes.php';
+
 if ($route->isRoute($path)) {
-    $route->route[$path]($a);
+    $route->route[$path]();
 } else {
     echo 'Error 404';
 }
