@@ -16,17 +16,31 @@ class Route
 
     public function addRoute($path, $function)
     {
-        if (is_string($path), is_ca)
+        if (! is_string($path)) {
+            return false;
+        }
+
+        if (! is_callable($function)) {
+            return false;
+        }
+
         $this->route[$path] = $function;
+        return true;
     }
 
     public function loadRoute($path)
     {
+        if (! is_string($path)) {
+            return false;
+        }
+
         if ($this->isRoute($path)) {
-            $this->route[$path]();
+            return $this->route[$path]();
         } else {
             echo 'Error 404';
         }
+
+        return true;
     }
 
     private function isRoute($method)
