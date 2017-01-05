@@ -16,7 +16,7 @@ class RouteTest extends TestCase
     public function testLoadRoute()
     {
         $route = new RR\Route\Route();
-        $path = array();
+        $path = '';
         $bool = $route->loadRoute($path);
 
         $this->assertEquals(true, $bool);
