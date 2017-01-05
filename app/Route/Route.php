@@ -16,10 +16,20 @@ class Route
 
     public function addRoute($path, $function)
     {
+        if (is_string($path), is_ca)
         $this->route[$path] = $function;
     }
 
-    public function isRoute($method)
+    public function loadRoute($path)
+    {
+        if ($this->isRoute($path)) {
+            $this->route[$path]();
+        } else {
+            echo 'Error 404';
+        }
+    }
+
+    private function isRoute($method)
     {
         if (array_key_exists($method, $this->route)) {
             return true;
