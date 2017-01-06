@@ -3,19 +3,9 @@
 namespace RR\Controllers;
 
 
-class Basic
+class Basic extends \RR\Libraries\Basic
 {
-    public function loadView($path, $data = null)
+    public function __construct()
     {
-        /*
-         * Creates variables with the keys the array
-         */
-        if ($data != null) {
-            foreach ($data as $key => $value) {
-                $$key = $data[$key];
-            }
-        }
-
-        include_once __DIR__.'../../Views/'.$path;
     }
 }
