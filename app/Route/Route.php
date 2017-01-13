@@ -62,26 +62,28 @@ class Route
         }
 
         if ($this->isRoute($path)) {
+            $this->getArgsFromPath($path);
+
             if ($this->args != "") {
                 return $this->route[$this->name]['function']($this->args);
             } else {
                 return $this->route[$this->name]['function']();
             }
         } else {
-            echo 'Error 404';
+            redirect('404');
         }
 
         return true;
     }
 
-    private function isRoute($path)
-    {
-        $this->getArgsFromPath($path);
+    private function isRoute($path)    {
         $this->namePath($path);
 
-        //TODO Implements full support for REGEX
-
         if ($this->name == '') {
+            return true;
+        }
+
+        if (array_key_exists($path, $this->route)) {
             return true;
         }
 
@@ -89,10 +91,6 @@ class Route
             return true;
         }
 
-        if (array_key_exists($path, $this->route)) {
-            return true;
-        }
-            
         return false;        
     }
 

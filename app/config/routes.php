@@ -1,16 +1,21 @@
 <?php
 
 /*
- * Use REGEX for more advanced routes
- * Pattern: $route->addRoute('name', 'name-something', function ($var) {});
- * example: $route->addRoute('user/id', 'user/id-[0-9]', function ($id) {});
+ * Use REGEX for more advanced routes. Only begin with the | string | number | special sign like _ or - (see example)
+ * Beginning with pattern '/name_[0-9]/' is disallowed. Routing will not working.
+ * Pattern: $route->addRoute('/name\/value/', function ($args) {});
+ * example: $route->addRoute('/name_id\/[0-9]+/', function ($id) {});
  */
 
 $route->addRoute('', function() {
     echo 'Strona główna';
 });
 
-$route->addRoute('/contact/', function () {
+$route->addRoute('404', function () {
+    echo 'Nie ma takiej strony';
+});
+
+$route->addRoute('contact', function () {
     new \RR\Controllers\Contact();
 });
 
