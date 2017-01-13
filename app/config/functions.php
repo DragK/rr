@@ -8,3 +8,7 @@ function path() {
 
     return $path;
 }
+
+function redirect($path) {
+    header('location: '. SITE_URL . $path);
+}
