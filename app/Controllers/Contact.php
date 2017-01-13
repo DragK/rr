@@ -15,7 +15,6 @@ class Contact extends Basic
         $this->model = new Models\Basic();
         $data['title'] = 'Kontakt';
 
-        print_r($this->loadView('templates/head.php', $data));
         $this->loadView('templates/footer.php');
     }
 }
